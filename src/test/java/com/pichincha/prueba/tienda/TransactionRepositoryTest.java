@@ -14,10 +14,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.pichincha.prueba.tienda.application.controllers.UserController;
+import com.pichincha.prueba.tienda.application.controllers.TransactionController;
 import com.pichincha.prueba.tienda.domain.dao.ITransactionDAO;
 
-@WebMvcTest(UserController.class)
+@WebMvcTest(TransactionController.class)
 @AutoConfigureMockMvc()
 @ActiveProfiles(profiles = "test")
 public class TransactionRepositoryTest {
@@ -29,7 +29,7 @@ public class TransactionRepositoryTest {
 	@MockBean
 	private ITransactionDAO iTransactionDAO;
 	@Test
-	public void getUsers() throws Exception {
+	public void getTransaction() throws Exception {
 		mockMvc.perform(get("/prueba/transactions")).andExpect(status().is(HttpStatus.OK.value())).andReturn()
 				.getResponse().getContentAsString();
 	}
